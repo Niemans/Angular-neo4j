@@ -8,7 +8,7 @@ Run `ng serve --open` for a dev server. Navigate to `http://localhost:4200/`. Th
 
 ## Code scaffolding
 
-Run `ng generate component components/component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 Run `ng generate services/service-name` to generate a new service.
 

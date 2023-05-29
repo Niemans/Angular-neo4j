@@ -9,16 +9,18 @@ export class SimsService {
   private dr!:Driver;
   private ses!:Session;
 
-  constructor() {}
 
   async findPerson(){
+    const readQuery = `MATCH (p:Sim) RETURN p`;
+    return await this.findSomething(readQuery);
+  }
+
+  async findSomething(query:string){ //not tested
     this.openSession();
 
-    const readQuery = `MATCH (p:Sim) RETURN p`;
     let records;
-
     try {
-      records =  (await this.ses.executeRead( tw => tw.run(readQuery))).records;
+      records =  (await this.ses.executeRead( tw => tw.run(query))).records;
     }
     catch (error) {
       console.error("findPerson error:\n" + error);

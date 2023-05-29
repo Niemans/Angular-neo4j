@@ -17,9 +17,6 @@ export class SimsComponent implements OnInit {
   async ngOnInit() {
     let result = await this.service.findPerson();
 
-
-
-
     result?.forEach(record => {
       this.simsList.push(record.get('p'));
     })

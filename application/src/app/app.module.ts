@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { SimsComponent } from './components/sims/sims.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 
 
 
@@ -24,7 +25,8 @@ import { SimsComponent } from './components/sims/sims.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    SimsComponent
+    SimsComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,
