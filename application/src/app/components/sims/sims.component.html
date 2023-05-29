@@ -1,0 +1,13 @@
+<h1 >Every sim</h1>
+
+<mat-card *ngFor="let item of simsList" >
+  <h1>
+    {{item.properties.FirstName}}
+    {{item.properties.SecondName}}
+    {{item.properties.LastName}}
+  </h1>
+  <h2>Info: </h2>
+  <p> Age: {{item.properties.Age.low}}</p>
+  <p> Hobby: {{item.properties.Hobby}}</p>
+  <p> Is alive: {{item.properties.IsAlive}}</p>
+</mat-card>
