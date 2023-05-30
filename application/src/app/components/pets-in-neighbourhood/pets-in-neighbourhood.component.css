@@ -8,11 +8,30 @@ button {
 }
 
 mat-form-field {
-  margin: 10px
+  margin: 10px;
 }
 
 form {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+mat-card{
+  text-align: center;
+  margin: 5px;
+  padding:5px;
+}
+
+p,h2,h1{
+  margin: auto;
+}
+
+.rel{
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+.main{
+  margin-bottom: 20px;
 }

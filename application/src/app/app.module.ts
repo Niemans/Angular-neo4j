@@ -18,8 +18,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { SimsComponent } from './components/sims/sims.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
-import { ShortestPathComponent } from './components/shortest-path/shortest-path.component';
+import { PeopleInHauseComponent } from './components/people-in-house/people-in-hause.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PetsInNeighbourhoodComponent } from './components/pets-in-neighbourhood/pets-in-neighbourhood.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     SimsComponent,
     NavigationBarComponent,
-    ShortestPathComponent
+    PeopleInHauseComponent,
+    PetsInNeighbourhoodComponent
   ],
   imports: [
     BrowserModule,

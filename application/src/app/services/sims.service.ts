@@ -9,9 +9,45 @@ export class SimsService {
   private dr!:Driver;
   private ses!:Session;
 
+  async findLinkPetNeighbourhood(neighbourhoodID:string){
+    const readQuery = `
+    match q = shortestPath((p:Pet)-[:SPRelation|PSRelation|IsIn|LivesIn *1..20]-(n:Neighbourhood))
+    where elementId(n) = '${neighbourhoodID}'
+    return q;
+    `;
+    return await this.findSomething(readQuery);
+  }
 
-  async findShortestPathBetween2Sims(){
-    const readQuery = `MATCH p=shortestPath((s:Sim {FirstName:'Roman'})-[:SSRelation*1..20]->(s2:Sim {FirstName:'Amanda'})) RETURN p`;
+  async findPeoplesAtHouse(houseID:string){
+    const readQuery = `
+      match (s)-[r:LivesIn]-(h:House)
+      where elementid(h) = '${houseID}'
+      return s,r
+    `;
+    return await this.findSomething(readQuery);
+  }
+
+  async findHome(){
+    const readQuery = `
+      match (h:House)
+      return h;
+    `;
+    return await this.findSomething(readQuery);
+  }
+
+  async findPet(){
+    const readQuery = `
+      match (p:Pet)
+      return p;
+    `;
+    return await this.findSomething(readQuery);
+  }
+
+  async findNeighbourhood(){
+    const readQuery = `
+      match (n:Neighbourhood)
+      return n;
+    `;
     return await this.findSomething(readQuery);
   }
 
@@ -19,6 +55,8 @@ export class SimsService {
     const readQuery = `MATCH (p:Sim) RETURN p`;
     return await this.findSomething(readQuery);
   }
+
+
 
   private async findSomething(query:string){ //not tested
     this.openSession();
