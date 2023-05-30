@@ -20,6 +20,28 @@ export class SimsService {
     return await this.findSomething(readQuery);
   }
 
+  async findSimAPetBNbC(){
+    const readQuery = `match q = (s:Sim)-[:SSRelation]->(s2:Sim)
+    where s2.FirstName = 'Grzegorz'
+    match q2 = (s:Sim)-[:LivesIn*1..2]->(h:House)-[:IsIn]->(n:Neighbourhood)
+    where n.Name = 'Hopewell Hills'
+    Match q3 = (s:Sim)-[:SPRelation]->(p:Pet)
+    where p.Name = 'Luca'
+    return s;`;
+    return await this.findSomething(readQuery);
+  }
+
+  async findMFCC(){
+    const readQuery = `match q = (s:Sim)-[:SSRelation]->(s2:Sim)
+    where s2.FirstName = 'Monika'
+    match q2 = (s:Sim)-[:LivesIn*1..2]->(h:House)-[:IsIn]->(n:Neighbourhood)
+    where n.Name = 'Foundry Cove'
+    Match q3 = (s:Sim)-[:SPRelation]->(p:Pet)
+    where p.Name = 'Copper'
+    return s;`;
+    return await this.findSomething(readQuery);
+  }
+
   async findSomething(query:string){ //not tested
     this.openSession();
 

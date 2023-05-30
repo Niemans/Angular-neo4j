@@ -1,0 +1,15 @@
+<h1 >Relationship</h1>
+
+<mat-card *ngFor="let item of simsList" >
+  <h1>
+    {{item.start.properties.FirstName}}
+    -
+    {{item.end.properties.FirstName}}
+  </h1>
+  <h2>Info: </h2>
+  <mat-card *ngFor="let rel of item.segments" >
+    <b><p>{{rel.start.properties.FirstName}} - {{rel.end.properties.FirstName}}</p></b>
+    <b><p>Type</p></b>
+    <b><p>{{rel.relationship.properties.Type}}</p></b>
+  </mat-card>
+</mat-card>
