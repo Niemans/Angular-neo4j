@@ -23,7 +23,9 @@ import { JS } from './components/Julia-Siergiej/JS.component';
 import { MHHL } from './components/Marzen-HH-Luca/MHHL.component';
 import { MFCC } from './components/Monika-FC-Copper/MFCC.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
-
+import { PeopleInHauseComponent } from './components/people-in-house/people-in-hause.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PetsInNeighbourhoodComponent } from './components/pets-in-neighbourhood/pets-in-neighbourhood.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
     JS,
     MHHL,
     MFCC,
-    NavigationBarComponent
+    NavigationBarComponent,
+    PeopleInHauseComponent,
+    PetsInNeighbourhoodComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,8 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
     MatToolbarModule,
     MatSelectModule,
     MatTableModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

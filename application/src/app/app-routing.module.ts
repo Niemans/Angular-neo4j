@@ -7,7 +7,8 @@ import { SM } from './components/Siergiej-Marzena/SM.component';
 import { JS } from './components/Julia-Siergiej/JS.component';
 import { MHHL } from './components/Marzen-HH-Luca/MHHL.component';
 import { MFCC } from './components/Monika-FC-Copper/MFCC.component';
-
+import { PeopleInHauseComponent } from './components/people-in-house/people-in-hause.component';
+import { PetsInNeighbourhoodComponent } from './components/pets-in-neighbourhood/pets-in-neighbourhood.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -17,6 +18,8 @@ const routes: Routes = [
   {path: "JS", component: JS},
   {path: "MHHL", component: MHHL},
   {path: "MFCC", component: MFCC},
+  {path: "people-in-house", component: PeopleInHauseComponent},
+  {path: "pets-is-neighbourhood", component: PetsInNeighbourhoodComponent},
 ];
 
 @NgModule({

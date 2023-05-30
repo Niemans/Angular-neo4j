@@ -1,0 +1,39 @@
+<form [formGroup]="form" #formDirective="ngForm" (ngSubmit)="findLink()" novalidate>
+
+  <mat-form-field>
+    <mat-label>Neighbourhood:</mat-label>
+    <mat-select formControlName="neighbourhood">
+        <mat-option *ngFor="let neighbourhood of neighbourhoodList" [value]="neighbourhood.elementId"> {{neighbourhood.properties.Name}} </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button [disabled]="!form.valid" mat-raised-button type="submit">
+    <span>Find</span>
+  </button>
+</form>
+
+
+<mat-card class="main" *ngFor="let fields of links" style="background-color: rgb(61, 70, 146);">
+  <div *ngFor="let field of fields">
+    <mat-card class="node">
+      <div>
+        <h2>Typ:</h2>
+        <p>{{field.label}}</p>
+        <h2>Info: </h2>
+        <div *ngFor="let property of field.properties | keyvalue">
+          <p>{{property.key}}: {{property.value}} </p>
+        </div>
+      </div>
+    </mat-card>
+    <mat-card class="rel" *ngIf="field.relation !== null">
+      <div>
+        <h2>Typ:</h2>
+        <p>{{field.relation.type}}</p>
+        <h2>Info: </h2>
+        <div *ngFor="let property of field.relation.properties | keyvalue">
+          <p>{{property.key}}: {{property.value}} </p>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</mat-card>

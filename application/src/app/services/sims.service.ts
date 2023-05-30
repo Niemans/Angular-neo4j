@@ -9,6 +9,47 @@ export class SimsService {
   private dr!:Driver;
   private ses!:Session;
 
+  async findLinkPetNeighbourhood(neighbourhoodID:string){
+    const readQuery = `
+    match q = shortestPath((p:Pet)-[:SPRelation|PSRelation|IsIn|LivesIn *1..20]-(n:Neighbourhood))
+    where elementId(n) = '${neighbourhoodID}'
+    return q;
+    `;
+    return await this.findSomething(readQuery);
+  }
+
+  async findPeoplesAtHouse(houseID:string){
+    const readQuery = `
+      match (s)-[r:LivesIn]-(h:House)
+      where elementid(h) = '${houseID}'
+      return s,r
+    `;
+    return await this.findSomething(readQuery);
+  }
+
+  async findHome(){
+    const readQuery = `
+      match (h:House)
+      return h;
+    `;
+    return await this.findSomething(readQuery);
+  }
+
+  async findPet(){
+    const readQuery = `
+      match (p:Pet)
+      return p;
+    `;
+    return await this.findSomething(readQuery);
+  }
+
+  async findNeighbourhood(){
+    const readQuery = `
+      match (n:Neighbourhood)
+      return n;
+    `;
+    return await this.findSomething(readQuery);
+  }
 
   async findPerson(){
     const readQuery = `MATCH (p:Sim) RETURN p`;
@@ -42,7 +83,11 @@ export class SimsService {
     return await this.findSomething(readQuery);
   }
 
-  async findSomething(query:string){ //not tested
+
+
+
+
+  private async findSomething(query:string){ //not tested
     this.openSession();
 
     let records;
