@@ -1,0 +1,21 @@
+<form [formGroup]="form" #formDirective="ngForm" (ngSubmit)="findPath()" novalidate>
+
+  <mat-form-field>
+    <mat-label>First Sim:</mat-label>
+    <mat-select formControlName="start">
+        <mat-option *ngFor="let sim of simList" [value]="sim"> {{sim.properties.FirstName}} {{sim.properties.SecondName}} {{sim.properties.LastName}} </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Second Sim:</mat-label>
+    <mat-select formControlName="finish">
+        <mat-option *ngFor="let sim of simList" [value]="sim"> {{sim.properties.FirstName}} {{sim.properties.SecondName}} {{sim.properties.LastName}} </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button [disabled]="!form.valid" mat-raised-button type="submit">
+    <span>Find</span>
+  </button>
+</form>
+

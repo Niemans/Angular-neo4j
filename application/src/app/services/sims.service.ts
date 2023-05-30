@@ -10,12 +10,17 @@ export class SimsService {
   private ses!:Session;
 
 
+  async findShortestPathBetween2Sims(){
+    const readQuery = `MATCH p=shortestPath((s:Sim {FirstName:'Roman'})-[:SSRelation*1..20]->(s2:Sim {FirstName:'Amanda'})) RETURN p`;
+    return await this.findSomething(readQuery);
+  }
+
   async findPerson(){
     const readQuery = `MATCH (p:Sim) RETURN p`;
     return await this.findSomething(readQuery);
   }
 
-  async findSomething(query:string){ //not tested
+  private async findSomething(query:string){ //not tested
     this.openSession();
 
     let records;

@@ -18,7 +18,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { SimsComponent } from './components/sims/sims.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
-
+import { ShortestPathComponent } from './components/shortest-path/shortest-path.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
     AppComponent,
     HomeComponent,
     SimsComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    ShortestPathComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
     MatToolbarModule,
     MatSelectModule,
     MatTableModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
