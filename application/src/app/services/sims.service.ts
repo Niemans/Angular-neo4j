@@ -15,6 +15,11 @@ export class SimsService {
     return await this.findSomething(readQuery);
   }
 
+  async findSimConnection(Sim1: string, Sim2: string){
+    const readQuery = `MATCH p=shortestPath((s:Sim {FirstName:'` + Sim1 + `'})-[:SSRelation*1..20]->(s2:Sim {FirstName:'` + Sim2 + `'}))RETURN p;`;
+    return await this.findSomething(readQuery);
+  }
+
   async findSomething(query:string){ //not tested
     this.openSession();
 
