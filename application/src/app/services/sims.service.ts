@@ -27,10 +27,30 @@ export class SimsService {
     return await this.findSomething(readQuery);
   }
 
+  async findPplwJobAndFriends(houseID:string, countr:number){
+    const readQuery = `
+    match (s:Sim)-[r:SSRelation]-(:Sim)
+    with s, count(r) as counter
+    where counter > `+ countr + `
+    match (s:Sim)-[:WorksAs]->(j:Job)
+    where elementid(j)="` + houseID + `"
+    return s,counter
+    `;
+    return await this.findSomething(readQuery);
+  }
+
   async findHome(){
     const readQuery = `
       match (h:House)
       return h;
+    `;
+    return await this.findSomething(readQuery);
+  }
+
+  async findJob(){
+    const readQuery = `
+      match (j:Job)
+      return j;
     `;
     return await this.findSomething(readQuery);
   }

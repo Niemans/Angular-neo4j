@@ -22,6 +22,7 @@ import { SM } from './components/Siergiej-Marzena/SM.component';
 import { JS } from './components/Julia-Siergiej/JS.component';
 import { MHHL } from './components/Marzen-HH-Luca/MHHL.component';
 import { MFCC } from './components/Monika-FC-Copper/MFCC.component';
+import { PWFAJ } from './components/people-with-fiends-and-job/PWFAJ.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { PeopleInHauseComponent } from './components/people-in-house/people-in-hause.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -38,6 +39,7 @@ import { PetsInNeighbourhoodComponent } from './components/pets-in-neighbourhood
     JS,
     MHHL,
     MFCC,
+    PWFAJ,
     NavigationBarComponent,
     PeopleInHauseComponent,
     PetsInNeighbourhoodComponent

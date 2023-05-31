@@ -1,0 +1,44 @@
+
+button {
+  padding: 30px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  font-size: 22px;
+  letter-spacing:0;
+}
+
+.main{
+  width: 100%;
+}
+
+.mat1{
+  margin-left: 1%;
+  width: 55%;
+  float: left;
+}
+.mat2{
+  margin-right: 1%;
+  float: right;
+  width: 43%;
+}
+
+mat-form-field {
+  margin: 1%;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-card{
+  margin-top: 0.5%;
+}
+
+p,h2,h1{
+  margin: auto;
+  margin-left: 0.5%;
+
+}
+
