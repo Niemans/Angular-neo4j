@@ -1,0 +1,48 @@
+<form [formGroup]="form" #formDirective="ngForm" (ngSubmit)="findPeople()" novalidate>
+
+  <mat-form-field>
+    <mat-label>Job:</mat-label>
+    <mat-select formControlName="house">
+        <mat-option *ngFor="let job of houseList" [value]="job.elementId"> {{job.properties.Type}} </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+  <mat-label>Number:
+   </mat-label>
+   <input type input type="number" class="form-control" matInput name="time" placeholder="Number of rel" formControlName="nrOfRiends" required>
+  </mat-form-field>
+
+  <button [disabled]="!form.valid" mat-raised-button type="submit">
+    <span>Find</span>
+  </button>
+</form>
+
+
+<div class="main" *ngFor="let item of simList">
+  <mat-card class="mat1">
+    <div>
+      <h1>
+        {{item.properties.FirstName}}
+        {{item.properties.SecondName}}
+        {{item.properties.LastName}}
+      </h1>
+      <h2>Info: </h2>
+      <p> Age: {{item.properties.Age.low}}</p>
+      <p> Hobby: {{item.properties.Hobby}}</p>
+      <p> Is alive: {{item.properties.IsAlive}}</p>
+    </div>
+  </mat-card>
+
+  <mat-card class="mat2">
+    <div>
+      <h1>
+        Realtion with house:
+      </h1>
+      <h2>Info: </h2>
+      <p> Owns house: {{item.relation.properties.Owns}}</p>
+      <p> Satisfaction: {{item.relation.properties.Satisfaction}} out of 1</p>
+      <p> Years lived there: {{item.relation.properties.YearsLived}}</p>
+    </div>
+  </mat-card>
+</div>
