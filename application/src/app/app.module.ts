@@ -27,6 +27,7 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
 import { PeopleInHauseComponent } from './components/people-in-house/people-in-hause.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PetsInNeighbourhoodComponent } from './components/pets-in-neighbourhood/pets-in-neighbourhood.component';
+import { PeopleWithFirendsComponent } from './components/people-with-firends/people-with-firends.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { PetsInNeighbourhoodComponent } from './components/pets-in-neighbourhood
     PWFAJ,
     NavigationBarComponent,
     PeopleInHauseComponent,
-    PetsInNeighbourhoodComponent
+    PetsInNeighbourhoodComponent,
+    PeopleWithFirendsComponent
   ],
   imports: [
     BrowserModule,

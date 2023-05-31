@@ -27,13 +27,23 @@ export class SimsService {
     return await this.findSomething(readQuery);
   }
 
-  async findPplwJobAndFriends(houseID:string, countr:number){
+  async findPplwJobAndFriends(jobID:string, countr:number){
     const readQuery = `
     match (s:Sim)-[r:SSRelation]-(:Sim)
     with s, count(r) as counter
     where counter > `+ countr + `
     match (s:Sim)-[:WorksAs]->(j:Job)
-    where elementid(j)="` + houseID + `"
+    where elementid(j)="` + jobID + `"
+    return s,counter
+    `;
+    return await this.findSomething(readQuery);
+  }
+
+  async findPplwFriends(countr:number){
+    const readQuery = `
+    match (s:Sim)-[r:SSRelation]-(:Sim)
+    with s, count(r) as counter
+    where counter > ${countr}
     return s,counter
     `;
     return await this.findSomething(readQuery);

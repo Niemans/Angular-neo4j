@@ -10,6 +10,7 @@ import { MFCC } from './components/Monika-FC-Copper/MFCC.component';
 import { PWFAJ } from './components/people-with-fiends-and-job/PWFAJ.component';
 import { PeopleInHauseComponent } from './components/people-in-house/people-in-hause.component';
 import { PetsInNeighbourhoodComponent } from './components/pets-in-neighbourhood/pets-in-neighbourhood.component';
+import { PeopleWithFirendsComponent } from './components/people-with-firends/people-with-firends.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -22,6 +23,8 @@ const routes: Routes = [
   {path: "PWFAJ", component: PWFAJ},
   {path: "people-in-house", component: PeopleInHauseComponent},
   {path: "pets-is-neighbourhood", component: PetsInNeighbourhoodComponent},
+  {path: "people-with-relations", component: PeopleWithFirendsComponent},
+
 ];
 
 @NgModule({

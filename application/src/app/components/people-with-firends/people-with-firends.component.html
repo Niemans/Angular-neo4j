@@ -1,0 +1,29 @@
+<form [formGroup]="form" #formDirective="ngForm" (ngSubmit)="findPeople()" novalidate>
+
+  <mat-form-field>
+    <input  input matInput type="number" class="form-control"  name="time" placeholder="Number of rel" formControlName="nrOfRiends" required>
+  </mat-form-field>
+
+  <button [disabled]="!form.valid" mat-raised-button type="submit">
+    <span>Find</span>
+  </button>
+</form>
+
+
+<div class="main" *ngFor="let item of simList; let i=index">
+  <mat-card class="mat1">
+    <div>
+      <h1>
+        {{item.properties.FirstName}}
+        {{item.properties.SecondName}}
+        {{item.properties.LastName}}
+      </h1>
+      <h2>Info: </h2>
+      <p> Age: {{item.properties.Age.low}}</p>
+      <p> Hobby: {{item.properties.Hobby}}</p>
+      <p> Is alive: {{item.properties.IsAlive}}</p>
+      <h2>Number of relations:</h2>
+      <p> {{counters[i]}}</p>
+    </div>
+  </mat-card>
+</div>
