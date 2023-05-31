@@ -11,47 +11,45 @@ export class PWFAJ implements OnInit{
   @ViewChild("formDirective") formDirective!: NgForm;
 
   form!: FormGroup;
-  houseList: any[];
 
+  jobList: any[];
   simList: any[];
-  relationList: any[];
 
   constructor(private service: SimsService){
-    this.houseList = [];
+    this.jobList = [];
     this.simList = [];
-    this.relationList = [];
   }
 
   async ngOnInit() {
-    let result = await this.service.findPerson();
+    this.form = this.createFormGroup();
+    let result = await this.service.findJob();
 
     result?.forEach(record => {
-      this.simList.push(record.get('p'));
+      this.jobList.push(record.get('j'));
     })
 
-    console.log(this.simList);
   }
 
   async findPeople(){
     this.simList = [];
-    this.relationList = [];
 
-    let house = this.form.value.house;
+    let job = this.form.value.job;
     let nr = this.form.value.nrOfRiends;
 
-    let result = await this.service.findPplwJobAndFriends(house, nr);
+    let result = await this.service.findPplwJobAndFriends(job,nr);
 
     result?.forEach(record => {
       try{
-        this.simList.push(record.get('p'));
+        this.simList.push(record.get('s'));
       } catch(err) {}
     })
+
   }
 
   private createFormGroup(): FormGroup<any> {
     return new FormGroup({
-      house: new FormControl('',[Validators.required]),
-      nrOfRiends : new FormControl('',[Validators.required])
+      job: new FormControl('',[Validators.required]),
+      nrOfRiends: new FormControl('',[Validators.required, Validators.min(0)]),
     })
   }
 }
